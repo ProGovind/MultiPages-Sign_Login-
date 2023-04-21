@@ -3,7 +3,7 @@ let form = document.querySelector('form');
 form.addEventListener("submit" , adduserinput)
 
 let signdata =[];
-
+let count =0;
 function adduserinput(event)
 {
   event.preventDefault();
@@ -34,6 +34,12 @@ function adduserinput(event)
   if(checkpassword(password.value , email.value , name.value) == false)
   {
     alert("Please Re-enter Password Correctly")
+    count++;
+    return;
+  }
+  else
+  {
+    count = 0;
   }
   
 
@@ -59,8 +65,10 @@ function adduserinput(event)
 
      alert("Account Is Sucessfully created")
 
-
+    if(count == 0)
+    {
      window.location.href = "./Login.html"
+    }
 
 }
 

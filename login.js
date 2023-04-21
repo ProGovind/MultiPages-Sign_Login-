@@ -8,10 +8,11 @@ let sign_data = JSON.parse(user_data);
 console.log(sign_data);
 form.addEventListener("submit" , checklogin);
 
-
+let count;
 
 function checklogin(event)
 {
+   count = 0;
   event.preventDefault();
 
   let email = document.querySelector("#email");
@@ -24,6 +25,7 @@ function checklogin(event)
       if(password.value == t.password)
       {
          alert("Login Is Sucessfully Created")
+         count++;
       }
       else
       {
@@ -64,6 +66,9 @@ function gettoken(email)
 
   user[0].token = token;
 
-  window.location.href = "./ques.html";
+  if(count>0)
+  {
+     window.location.href = "./ques.html";
+  }
 
 }
